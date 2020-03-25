@@ -1,11 +1,18 @@
-import React from "react";
-import "./launch-list-item.css"
+import React, {Fragment} from "react";
+//import "./launch-list-item.css"
 
-const LaunchListItem = () => {
+const LaunchListItem = ({itemId, item}) => {
+    const {mission, launch, vehicle, location} = item;
+
     return (
-        <div>
-
-        </div>
+        <Fragment>
+            <tr>
+                <td>{itemId + 1}</td>
+                <td>{mission}</td>
+                <td>{vehicle}</td>
+                <td>{location}</td>
+            </tr>
+        </Fragment>
     )
 };
 
