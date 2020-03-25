@@ -1,5 +1,4 @@
 import React, {Fragment} from "react";
-//import "./launch-list-item.css"
 
 const LaunchListItem = ({itemId, item}) => {
     const {mission, launch, vehicle, location} = item;

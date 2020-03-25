@@ -3,8 +3,8 @@ import "./error-indicator.css";
 
 const ErrorIndicator = () => {
     return (
-        <div className="error-indicator">
-            error
+        <div className="error-indicator jumbotron">
+            <h4>Ooops... Something goes wrong</h4>
         </div>
     )
 };

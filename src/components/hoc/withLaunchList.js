@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import RocketService from "../../services/rocket-service";
 import Spinner from "../spinner";
+import ErrorIndicator from "../error-indicator";
 
 const withLaunchList = (View) => {
     return () => {
@@ -8,18 +9,12 @@ const withLaunchList = (View) => {
         const rocketService = new RocketService();
         const {fetchData} = rocketService;
 
-        const [items, setItems] = useState(null);
+        const [items, setItems] = useState([]);
         const [loading, setLoading] = useState(false);
         const [error, setError] = useState(false);
 
         useEffect(() => {
-            setLoading(true);
-            updateItem();
             console.log("useEffect");
-        }, []);
-
-        const updateItem = () => {
-            setLoading(true);
             setTimeout(() => {
                 fetchData()
                     .then((item) => {
@@ -27,28 +22,28 @@ const withLaunchList = (View) => {
                         setLoading(false);
                         setError(false);
                     })
-                    .catch((error) => {
+                    .catch(() => {
                         setItems(null);
                         setError(true);
                         setLoading(false);
                     })
             }, 1000)
+        }, []);
 
-        };
-
-        if (items === null) {
+        if (loading) {
             return <Spinner/>
+        }
+
+        if (error) {
+            return <ErrorIndicator/>
         }
 
         return (
             <View
                 items={items}
-                loading={loading}
-                error={error}
             />
         )
     }
-
 };
 
 export default withLaunchList;
