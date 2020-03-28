@@ -25,6 +25,7 @@ const LaunchList = ({items}) => {
                         <th scope="col">mission</th>
                         <th scope="col">vehicle</th>
                         <th scope="col">location</th>
+                        <th scope="col">launch date</th>
                     </tr>
                     </thead>
                     <tbody>

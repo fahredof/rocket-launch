@@ -1,12 +1,10 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useState, useEffect} from "react";
 import "./timer.css";
+import countBeforeLaunch from "../../utils/countBeforeLaunch";
 
-const Timer = () => {
-  return (
-      <Fragment>
+const Timer = ({launch}) => {
 
-      </Fragment>
-  )
+    return null;
 };
 
 export default Timer;

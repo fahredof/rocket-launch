@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 
 import ErrorBoundary from "./components/error-boundary";
 import App from "./components/app/App";
-
+import countBeforeLaunch from "./utils/countBeforeLaunch";
+countBeforeLaunch();
 ReactDOM.render(
     <ErrorBoundary>
         <App/>
