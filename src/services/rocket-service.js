@@ -1,7 +1,7 @@
 export default class RocketService {
     _api = "https://github.com/denissokolov/tc-internship-task/blob/master/launches.json";
 
-    /*fetchData = async () => {
+    fetchDatas = async () => {
         const res = await fetch(this._api);
 
         if (!res.ok) {
@@ -10,7 +10,7 @@ export default class RocketService {
         }
 
         return res.json();
-    };*/
+    };
 
     fetchData = async () => {
         return [

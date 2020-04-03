@@ -1,48 +1,56 @@
-import React, {useState, useEffect} from "react";
+import React, {Component} from "react";
 import RocketService from "../../services/rocket-service";
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
 
 const withLaunchList = (View) => {
-    return () => {
+    return class extends Component {
+        rocketService = new RocketService();
 
-        const rocketService = new RocketService();
-        const {fetchData} = rocketService;
+        state = {
+            items: [],
+            loading: true,
+            error: false
+        };
 
-        const [items, setItems] = useState([]);
-        const [loading, setLoading] = useState(false);
-        const [error, setError] = useState(false);
-
-        useEffect(() => {
-            console.log("useEffect");
-            /*setTimeout(() => {*/
+        componentDidMount() {
+            const {fetchData} = this.rocketService;
+            setTimeout(() => {
                 fetchData()
                     .then((item) => {
-                        setItems(item);
-                        setLoading(false);
-                        setError(false);
+                        this.setState({
+                            items: item,
+                            loading: false,
+                            error: false
+                        });
                     })
                     .catch(() => {
-                        setItems(null);
-                        setError(true);
-                        setLoading(false);
+                        this.setState({
+                            items: null,
+                            loading: false,
+                            error: true
+                        });
                     })
-            /*}, 2000)*/
-        }, []);
-
-        if (loading) {
-            return <Spinner/>
+            }, 1000);
         }
 
-        if (error) {
-            return <ErrorIndicator/>
-        }
+        render() {
+            const {items, loading, error} = this.state;
 
-        return (
-            <View
-                items={items}
-            />
-        )
+            if (loading) {
+                return <Spinner/>
+            }
+
+            if (error) {
+                return <ErrorIndicator/>
+            }
+
+            return (
+                <View
+                    items={items}
+                />
+            )
+        }
     }
 };
 
