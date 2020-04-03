@@ -1,6 +1,6 @@
 import React from "react";
 import "./launch-list.css";
-import withLaunchList from "../hoc/withLaunchList";
+import withLaunchList from "../hoc/with-launch-list";
 import LaunchListItem from "../launch-list-item";
 
 const LaunchList = ({items}) => {
@@ -25,6 +25,8 @@ const LaunchList = ({items}) => {
                         <th scope="col">mission</th>
                         <th scope="col">vehicle</th>
                         <th scope="col">location</th>
+                        <th scope="col">Launch Date</th>
+                        <th scope="col">Timer</th>
                     </tr>
                     </thead>
                     <tbody>

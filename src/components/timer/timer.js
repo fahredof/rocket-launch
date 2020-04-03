@@ -1,12 +1,12 @@
-import React, {Fragment} from "react";
-import "./timer.css";
+import React from "react";
+import withTimer from "../hoc/with-timer";
 
-const Timer = () => {
-  return (
-      <Fragment>
-
-      </Fragment>
-  )
+const Timer = ({launchTimer}) => {
+    return (
+        <>
+            {launchTimer}
+        </>
+    );
 };
 
-export default Timer;
+export default withTimer(Timer);

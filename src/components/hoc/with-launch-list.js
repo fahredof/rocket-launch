@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect} from "react";
 import RocketService from "../../services/rocket-service";
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
@@ -15,7 +15,7 @@ const withLaunchList = (View) => {
 
         useEffect(() => {
             console.log("useEffect");
-            setTimeout(() => {
+            /*setTimeout(() => {*/
                 fetchData()
                     .then((item) => {
                         setItems(item);
@@ -27,7 +27,7 @@ const withLaunchList = (View) => {
                         setError(true);
                         setLoading(false);
                     })
-            }, 1000)
+            /*}, 2000)*/
         }, []);
 
         if (loading) {
