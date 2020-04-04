@@ -1,5 +1,4 @@
 import React from "react";
-import "./launch-list.css";
 import withLaunchList from "../hoc/with-launch-list";
 import LaunchListItem from "../launch-list-item";
 

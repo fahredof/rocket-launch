@@ -1,17 +1,4 @@
 export default class RocketService {
-    _api = "https://github.com/denissokolov/tc-internship-task/blob/master/launches.json";
-
-    fetchDatas = async () => {
-        const res = await fetch(this._api);
-
-        if (!res.ok) {
-            throw new Error(`Could not fetch ${this._api}, 
-                                server end with status ${res.status}`);
-        }
-
-        return res.json();
-    };
-
     fetchData = async () => {
         return [
             {
