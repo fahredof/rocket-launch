@@ -1,6 +1,5 @@
 import React from "react";
 import "./app.css";
-
 import LaunchList from "../launch-list";
 
 const App = () => {

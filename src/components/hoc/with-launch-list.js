@@ -15,6 +15,7 @@ const withLaunchList = (View) => {
 
         componentDidMount() {
             const {fetchData} = this.rocketService;
+
             setTimeout(() => {
                 fetchData()
                     .then((item) => {

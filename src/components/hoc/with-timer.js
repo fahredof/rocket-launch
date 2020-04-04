@@ -1,14 +1,14 @@
 import React, {useState} from "react";
-import {getDifferent} from "../../utils";
+import {getTime} from "../../utils/get-data";
 
 const withTimer = (View) => {
     return ({launch}) => {
 
         const {years, months, date, hours, minutes} = launch;
-        let launchTimer = null;
+        let launchTimer;
 
         if (((years && months && date && hours && minutes) != null)) {
-            const different = getDifferent(launch);
+            const different = getTime(launch);
             const {days, hours, minutes} = different;
 
             const [dif, setDif] = useState({
@@ -18,8 +18,9 @@ const withTimer = (View) => {
             });
 
             setTimeout(() => {
-                const different = getDifferent(launch);
+                const different = getTime(launch);
                 const {days, hours, minutes} = different;
+
                 setDif({
                     day: days,
                     hour: hours,
